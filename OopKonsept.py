@@ -23,6 +23,8 @@ class ElektrikliAraba(Araba):  # inheritance: Araba sınıfından türetildi
     def sarj_et(self, miktar):
         self.batarya_kapasitesi += miktar
         print(f"{miktar} kWh şarj edildi. Güncel batarya: {self.batarya_kapasitesi} kWh")
+    def sarj_seviyesini_goster(self):
+        print(f"{self.marka} {self.model} - Batarya seviyesi: {self.batarya_kapasitesi} kWh")
 
     def bilgi_ver(self):  # polymorphism: üst sınıftaki metodu eziyoruz (override)
         print(f"Bu araç bir elektrikli {self.marka} {self.model}. Batarya: {self.batarya_kapasitesi} kWh")
@@ -40,4 +42,4 @@ if __name__ == "__main__":
     elektrikli_araba = ElektrikliAraba("Tesla", "Model 3", 0, 50)
     elektrikli_araba.bilgi_ver()
     elektrikli_araba.sarj_et(20)
-    elektrikli_araba.yakit_seviyesini_goster()  # kalıtım sayesinde Araba'dan gelen metodu kullanabiliyor
+    elektrikli_araba.sarj_seviyesini_goster()
